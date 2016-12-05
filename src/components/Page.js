@@ -35,7 +35,10 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
     el.target.querySelector('#commentBody').value = ''
   }
 
-  const deleteTweet = (id) => removeTweet(id)
+  const deleteTweet = (tweet) => {
+    const id = posts.indexOf(tweet)
+    removeTweet(id)
+  }
 
   return (
     <div className="container">
@@ -70,7 +73,7 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
               <div className="card-footer text-muted">
               <span className="date">{tweet.date}</span>
               { tweet.author === name ?
-                <button type="button" className="btn btn-danger" onClick={() => deleteTweet(tweet.id)}>Delete</button> :
+                <button type="button" className="btn btn-danger" onClick={() => deleteTweet(tweet)}>Delete</button> :
                 <button type="button" className="btn btn-danger disabled" >Delete</button>
               }
               </div>

@@ -60,6 +60,9 @@ var webpackConfig = {
       from: 'img/',
       to: 'img/'
     }, {
+      from: 'images/',
+      to: 'images/'
+    }, {
       from: 'fonts/',
       to: 'fonts/'
     }, {

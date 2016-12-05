@@ -57,8 +57,8 @@ export default function page(state = initialState, action) {
       return {
         ...state,
         posts: [
-          ...state.posts.slice(0, action.postId-1),
-          ...state.posts.slice(action.postId)
+          ...state.posts.slice(0, action.postId),
+          ...state.posts.slice(action.postId + 1)
         ]
       }
     }
@@ -77,8 +77,8 @@ export default function page(state = initialState, action) {
       return {
         ...state,
         comments: [
-          ...state.comments.slice(0, action.commentId-1),
-          ...state.comments.slice(action.commentId)
+          ...state.comments.slice(0, action.commentId),
+          ...state.comments.slice(action.commentId + 1)
         ]
       }
     }
