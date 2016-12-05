@@ -1,2 +1,40 @@
 @import "vendor/_reset";
 @import "vendor/_bootstrap";
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-form {
+  textarea {
+    margin-bottom: 10px;
+  }
+}
+
+.comment {
+  position: relative;
+
+  .delete {
+    position: absolute;
+    right: 1rem;
+    top: 0;
+  }
+}
+
+.sign-out {
+  margin-left: 15px;
+}
+
+.tweet-feed,
+.comments-list {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.new-tweet {
+  margin-bottom: 20px;
+}

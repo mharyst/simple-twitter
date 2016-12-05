@@ -10,15 +10,21 @@ import * as userActions from '../actions/UserActions'
 class App extends Component {
   render() {
     const { user, page } =  this.props
-    const { setYear } = this.props.pageActions
-    const { handleLogin } = this.props.userActions
-
+    const { createTweet, addComment, removeComment } = this.props.pageActions
+    const { handleLogin, signOut } = this.props.userActions
     return (
       <div>
         <Header/>
-        <User name={user.name} handleLogin={handleLogin} />
+        <User name={user.name} handleLogin={handleLogin} signOut={signOut} />
         { user.name ? (
-          <Page  name={user.name} posts={page.posts}/>
+          <Page 
+            name={user.name} 
+            posts={page.posts} 
+            comments={page.comments} 
+            createTweet={createTweet} 
+            addComment={addComment}
+            removeComment={removeComment}
+          />
         ) : (
           <div className="no-fav-msg text-sm-center">Sign in, please. </div>
         )}

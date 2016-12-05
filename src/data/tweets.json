@@ -1,1 +1,1 @@
-[{"id": 1, "name": "John", "text": "Cool day", "time": 1480720455657},{"id": 2, "name": "Robert", "text": "Netflix bringing offline playback to video service for the first time", "time": 1480720455657}]
+[{"id": 1, "author": "John", "body": "Cool day", "date": 1480720455657, "comments": []},{"id": 2, "author": "Robert", "body": "Netflix bringing offline playback to video service for the first date", "date": 1480720455657, "comments": [{"id": 1, "author": "Peter", "body": "Yep", "date": 1480720455657}, {"id": 2, "author": "Ivan", "body": "why?", "date": 1480720455659}]}]

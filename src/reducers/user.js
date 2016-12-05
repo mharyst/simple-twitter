@@ -13,6 +13,13 @@ export default function (state = initialState, action) {
       };
     }
 
+    case (actionTypes.LOGOUT_REQUEST): {
+      return {
+        ...state,
+        name: action.name,
+      };
+    }
+
     default: {
       return state;
     }
