@@ -1,7 +1,7 @@
 import React from 'react'
 import Comments from './Comments'
 
-const Page = ({ name, posts, comments, createTweet, addComment, removeComment }) => {
+const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, removeComment }) => {
   
   const formatDate = (date) => {
     let dd = date.getDate()
@@ -35,6 +35,7 @@ const Page = ({ name, posts, comments, createTweet, addComment, removeComment })
     el.target.querySelector('#commentBody').value = ''
   }
 
+  const deleteTweet = (id) => removeTweet(id)
 
   return (
     <div className="container">
@@ -69,7 +70,7 @@ const Page = ({ name, posts, comments, createTweet, addComment, removeComment })
               <div className="card-footer text-muted">
               <span className="date">{tweet.date}</span>
               { tweet.author === name ?
-                <button type="button" className="btn btn-danger" onClick={() => deleteTweet(tweet)}>Delete</button> :
+                <button type="button" className="btn btn-danger" onClick={() => deleteTweet(tweet.id)}>Delete</button> :
                 <button type="button" className="btn btn-danger disabled" >Delete</button>
               }
               </div>
@@ -86,6 +87,7 @@ Page.propTypes = {
   posts: React.PropTypes.array.isRequired,
   comments: React.PropTypes.array.isRequired,
   createTweet: React.PropTypes.func.isRequired,
+  removeTweet: React.PropTypes.func.isRequired,
   addComment: React.PropTypes.func.isRequired,
   removeComment: React.PropTypes.func.isRequired,
 }

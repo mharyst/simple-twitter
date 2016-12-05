@@ -10,7 +10,7 @@ import * as userActions from '../actions/UserActions'
 class App extends Component {
   render() {
     const { user, page } =  this.props
-    const { createTweet, addComment, removeComment } = this.props.pageActions
+    const { createTweet, removeTweet, addComment, removeComment } = this.props.pageActions
     const { handleLogin, signOut } = this.props.userActions
     return (
       <div>
@@ -22,6 +22,7 @@ class App extends Component {
             posts={page.posts} 
             comments={page.comments} 
             createTweet={createTweet} 
+            removeTweet={removeTweet} 
             addComment={addComment}
             removeComment={removeComment}
           />

@@ -3,11 +3,7 @@ import React from 'react'
 
 const Comments = ({ postId, comments, removeComment, name }) => {
 
-  const deleteComment = (comment) => {
-    const postId = comment.postId
-    const commentId = comment.id
-    removeComment(commentId)
-  }
+  const deleteComment = (id) => removeComment(id)
 
   const newCommentForm = () => (
     <form className="comment-form" onSubmit={postComment} >
@@ -20,7 +16,7 @@ const Comments = ({ postId, comments, removeComment, name }) => {
     <div className="comment" key={comment.id}>
       <h6 className="">{comment.author}</h6>
       { comment.author === name ?
-        <button type="button" className="btn btn-sm btn-danger delete" onClick={() => deleteComment(comment)}>Delete</button> :
+        <button type="button" className="btn btn-sm btn-danger delete" onClick={() => deleteComment(comment.id)}>Delete</button> :
         <button type="button" className="btn btn-sm btn-danger delete disabled" >Delete</button>
       }
       <p className="">{comment.body}</p>
