@@ -57,7 +57,7 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
       <div className="row">
         <div className="col-md-8 tweet-feed">
          { posts.map((tweet) => (
-            <div className="card" key={tweet.id}>
+            <div className={tweet.author === name ? "card card-outline-info" : "card" } key={tweet.id}>
               <div className="card-block">
                 <h5 className="card-title">{tweet.author}</h5>
                 <p className="card-text">{tweet.body}</p>

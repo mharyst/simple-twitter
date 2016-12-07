@@ -6,13 +6,13 @@ const initialState = {
       "id": 1,
       "author": "John",
       "body": "Cool day",
-      "date": "13.12.16"
+      "date": "13.11.16"
     },
     {
       "id": 2,
       "author": "Robert",
       "body": "Netflix bringing offline playback to video service for the first date",
-      "date": "13.12.16"
+      "date": "13.11.16"
     }
   ],
   comments: [
@@ -21,14 +21,14 @@ const initialState = {
       "postId": 2,
       "author": "Peter",
       "body": "Yep",
-      "date": "13.12.16"
+      "date": "13.11.16"
     },
     {
       "id": 2,
       "postId": 2,
       "author": "Ivan",
       "body": "why?",
-      "date": "13.12.16"
+      "date": "13.11.16"
     },
     {
       "id": 3,

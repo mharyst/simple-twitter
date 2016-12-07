@@ -27,7 +27,7 @@ class App extends Component {
             removeComment={removeComment}
           />
         ) : (
-          <div className="no-fav-msg text-sm-center">Sign in, please. </div>
+          <div className="no-fav-msg text-xs-center">Sign in, please.</div>
         )}
       </div>
     )
