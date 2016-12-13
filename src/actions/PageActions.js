@@ -9,7 +9,7 @@ export const createTweet = (post) => ({
 export const removeTweet = (postId) => ({
   type: actionTypes.POST_REMOVE,
   postId,
-  postIdinComments: `post${postId}`
+  postIdinComments: `post${postId + 1}`
 })
 
 export const addComment = (comment, postId) => ({
