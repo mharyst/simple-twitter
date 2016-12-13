@@ -5351,8 +5351,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .sign-out {
   margin-left: 15px; }
 
-.tweet-feed,
-.comments-list {
+.tweet-feed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
