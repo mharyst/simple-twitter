@@ -28,10 +28,10 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
     const commentBody = el.target.querySelector('#commentBody')
     const body = commentBody.value
     const author = name
-    const postId = parseInt(commentBody.getAttribute("data-id"))
-    const id = comments.length + 1
+    const postId = `post${commentBody.getAttribute("data-id")}`
+    const id = comments[postId].length + 1
     const date = formatDate(new Date)
-    body.length > 0 ? addComment({id, postId, author, body, date}) : alert('Enter comment, please')
+    body.length > 0 ? addComment({id, author, body, date}, postId) : alert('Enter comment, please')
     el.target.querySelector('#commentBody').value = ''
   }
 
@@ -88,7 +88,7 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
 Page.propTypes = {
   name: React.PropTypes.string.isRequired,
   posts: React.PropTypes.array.isRequired,
-  comments: React.PropTypes.array.isRequired,
+  comments: React.PropTypes.object.isRequired,
   createTweet: React.PropTypes.func.isRequired,
   removeTweet: React.PropTypes.func.isRequired,
   addComment: React.PropTypes.func.isRequired,

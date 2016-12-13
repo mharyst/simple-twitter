@@ -15,29 +15,30 @@ const initialState = {
       "date": "13.11.16"
     }
   ],
-  comments: [
-    {
-      "id": 1,
-      "postId": 2,
-      "author": "Peter",
-      "body": "Yep",
-      "date": "13.11.16"
-    },
-    {
-      "id": 2,
-      "postId": 2,
-      "author": "Ivan",
-      "body": "why?",
-      "date": "13.11.16"
-    },
-    {
-      "id": 3,
-      "postId": 1,
-      "author": "Logan",
-      "body": "hi!",
-      "date": "12.12.16"
-    }
-  ]
+  comments: {
+    post1: [
+      {
+        "id": 3,
+        "author": "Logan",
+        "body": "hi!",
+        "date": "12.11.16"
+      }
+    ],
+    post2: [
+      {
+        "id": 1,
+        "author": "Peter",
+        "body": "Yep",
+        "date": "13.11.16"
+      },
+      {
+        "id": 2,
+        "author": "Ivan",
+        "body": "why?",
+        "date": "13.11.16"
+      }
+    ]
+  }
 }
 
 export default function page(state = initialState, action) {
@@ -49,7 +50,11 @@ export default function page(state = initialState, action) {
         posts: [
           ...state.posts,
           action.post
-        ]
+        ],
+        comments: {
+          ...state.comments,
+          [action.postId]: []
+        }
       }
     }
 
@@ -59,27 +64,37 @@ export default function page(state = initialState, action) {
         posts: [
           ...state.posts.slice(0, action.postId),
           ...state.posts.slice(action.postId + 1)
-        ]
+        ],
+        comments: {
+          ...state.comments,
+          [action.postIdinComments]: []
+        }
       }
     }
 
     case actionTypes.COMMENT_ADD: {
       return {
         ...state,
-        comments: [
+        comments: {
           ...state.comments,
-          action.comment
-        ]
+          [action.postId]: [
+            ...state.comments[action.postId],
+            action.comment
+          ]
+        }
       }
     }
 
     case actionTypes.COMMENT_REMOVE: {
       return {
         ...state,
-        comments: [
-          ...state.comments.slice(0, action.commentId),
-          ...state.comments.slice(action.commentId + 1)
-        ]
+        comments: {
+          ...state.comments,
+          [action.postId]: [
+            ...state.comments[action.postId].slice(0, action.commentId),
+            ...state.comments[action.postId].slice(action.commentId + 1)
+          ]
+        }
       }
     }
 
