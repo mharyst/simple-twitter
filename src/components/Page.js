@@ -17,7 +17,7 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
     el.preventDefault()
     const body = el.target.querySelector('#tweetBody').value
     const author = name
-    const id = posts.length + 1
+    const id = (posts[posts.length - 1].id) + 1
     const date = formatDate(new Date)
     body.length > 0 ? createTweet({id, author, body, date}) : alert('Enter tweet, please')
     el.target.querySelector('#tweetBody').value = ''
@@ -29,7 +29,7 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
     const body = commentBody.value
     const author = name
     const postId = `post${commentBody.getAttribute("data-id")}`
-    const id = comments[postId].length + 1
+    const id = (comments[postId][comments[postId].length - 1].id) + 1
     const date = formatDate(new Date)
     body.length > 0 ? addComment({id, author, body, date}, postId) : alert('Enter comment, please')
     el.target.querySelector('#commentBody').value = ''
