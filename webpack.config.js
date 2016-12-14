@@ -13,8 +13,7 @@ var webpackConfig = {
   },
   output: {
     path: path.join(__dirname + '/docs/'),
-    publicPath: '/',
-    filename: "js/[name].js"
+    filename: "./js/[name].js"
   },
 
   devtool: 'inline-source-map',
@@ -73,7 +72,7 @@ var webpackConfig = {
       filename: 'index.html',
       template: 'index.html'
     }),
-    new ExtractTextPlugin('css/style.css', { allChunks: true, disable: process.env.NODE_ENV=='development'})
+    new ExtractTextPlugin('./css/style.css', { allChunks: true, disable: process.env.NODE_ENV=='development'})
   ],
   eslint: {
     configFile: '.eslintrc',

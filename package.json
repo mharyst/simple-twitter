@@ -1,6 +1,6 @@
 {
   "name": "simple-twitter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Twitter-like app with posts & comments",
   "main": "index.js",
   "author": "mharyst",
