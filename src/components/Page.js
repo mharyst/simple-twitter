@@ -1,22 +1,10 @@
 import React from 'react'
 import Comments from './Comments'
 import NewTweetForm from './NewTweetForm'
+import NewCommentForm from './NewCommentForm'
 import formatDate from '../helpers/formatDate'
 
 const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, removeComment }) => {
-
-  const postComment = (el) => {
-    el.preventDefault()
-    const author = name
-    const commentText = el.target.commentText
-    const body = commentText.value
-    const postId = commentText.getAttribute("data-id")
-    let id
-    comments[postId].length === 0 ? id = 0 : id = (comments[postId][comments[postId].length - 1].id) + 1
-    const date = formatDate(new Date)
-    body.length > 0 ? addComment({id, author, body, date}, postId) : alert('Enter comment, please')
-    commentText.value = ''
-  }
 
   const deleteTweet = (tweet) => {
     const id = posts.indexOf(tweet)
@@ -35,12 +23,9 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
                 <h5 className="card-title">{tweet.author}</h5>
                 <p className="card-text">{tweet.body}</p>
                 <li className="list-group-item">
-                  <h6 href="#" className="card-linkc comments"><u>Comments:</u></h6>
+                  <h6 className="card-linkc comments"><u>Comments:</u></h6>
                   <Comments postId={tweet.id} comments={comments} removeComment={removeComment} name={name} />
-                  <form className="comment-form" onSubmit={postComment} >
-                    <textarea className="form-control" id="commentText" data-id={tweet.id} rows="1" placeholder="New comment"></textarea>
-                    <button type="submit" className="btn btn-primary btn-sm">Add comment</button>
-                  </form>
+                  <NewCommentForm tweetId={tweet.id} name={name} comments={comments} addComment={addComment} />
                 </li>
               </div>
               <div className="card-footer text-muted">
