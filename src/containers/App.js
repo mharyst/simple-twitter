@@ -34,18 +34,14 @@ class App extends Component {
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    user: state.user,
-    page: state.page,
-  }
-}
+const mapStateToProps = (state) => ({
+  user: state.user,
+  page: state.page,
+})
 
-function mapDispatchToProps(dispatch) {
-  return {
-    pageActions: bindActionCreators(pageActions, dispatch),
-    userActions: bindActionCreators(userActions, dispatch),
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  pageActions: bindActionCreators(pageActions, dispatch),
+  userActions: bindActionCreators(userActions, dispatch),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

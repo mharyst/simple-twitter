@@ -3,11 +3,9 @@ import React from 'react'
 
 const Comments = ({ postId, comments, removeComment, name }) => {
 
-  const currPostId = `post${postId}`
-
   const deleteComment = (comment) => {
-    const id = comments[currPostId].indexOf(comment)
-    removeComment(id, currPostId)
+    const id = comments[postId].indexOf(comment)
+    removeComment(id, postId)
   }
 
   const newCommentForm = () => (
@@ -16,7 +14,7 @@ const Comments = ({ postId, comments, removeComment, name }) => {
       <button type="submit" className="btn btn-primary btn-sm">Add comment</button>
     </form>
   )
-  let commentsArr = comments[currPostId]
+  let commentsArr = comments[postId]
   let commentsChild = commentsArr.map(comment => (
     <div className="comment" key={comment.id}>
       <h6 className="">{comment.author}</h6>

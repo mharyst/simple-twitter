@@ -16,7 +16,7 @@ const initialState = {
     }
   ],
   comments: {
-    post1: [
+    1: [
       {
         "id": 3,
         "author": "Logan",
@@ -24,7 +24,7 @@ const initialState = {
         "date": "12.11.16"
       }
     ],
-    post2: [
+    2: [
       {
         "id": 1,
         "author": "Peter",

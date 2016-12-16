@@ -29,7 +29,7 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
     const commentBody = el.target.querySelector('#commentBody')
     const body = commentBody.value
     const author = name
-    const postId = `post${commentBody.getAttribute("data-id")}`
+    const postId = commentBody.getAttribute("data-id")
     let id
     comments[postId].length === 0 ? id = 0 : id = (comments[postId][comments[postId].length - 1].id) + 1
     const date = formatDate(new Date)
