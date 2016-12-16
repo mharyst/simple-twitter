@@ -1,4 +1,4 @@
-# Simple Twitter app v1.0.0
+# Simple Twitter app v1.0.1
 
 Live version available at https://mharyst.github.io/simple-twitter/
 
