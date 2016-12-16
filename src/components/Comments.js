@@ -8,12 +8,6 @@ const Comments = ({ postId, comments, removeComment, name }) => {
     removeComment(id, postId)
   }
 
-  const newCommentForm = () => (
-    <form className="comment-form" onSubmit={postComment} >
-      <textarea className="form-control" id="commentBody" data-id={tweet.id} rows="1" placeholder="New comment"></textarea>
-      <button type="submit" className="btn btn-primary btn-sm">Add comment</button>
-    </form>
-  )
   let commentsArr = comments[postId]
   let commentsChild = commentsArr.map(comment => (
     <div className="comment" key={comment.id}>

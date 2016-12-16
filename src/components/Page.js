@@ -15,26 +15,26 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
 
   const postTweet = (el) => {
     el.preventDefault()
-    const body = el.target.querySelector('#tweetBody').value
+    let text = el.target.tweetBody.value
     const author = name
     let id
     posts.length === 0 ? id = 0 : id = (posts[posts.length - 1].id) + 1
     const date = formatDate(new Date)
-    body.length > 0 ? createTweet({id, author, body, date}) : alert('Enter tweet, please')
-    el.target.querySelector('#tweetBody').value = ''
+    text.length > 0 ? createTweet({id, author, text, date}) : alert('Enter tweet, please')
+    el.target.tweetBody.value = ''
   }
 
   const postComment = (el) => {
     el.preventDefault()
-    const commentBody = el.target.querySelector('#commentBody')
-    const body = commentBody.value
+    const commentText = el.target.commentText
+    const body = commentText.value
     const author = name
-    const postId = commentBody.getAttribute("data-id")
+    const postId = commentText.getAttribute("data-id")
     let id
     comments[postId].length === 0 ? id = 0 : id = (comments[postId][comments[postId].length - 1].id) + 1
     const date = formatDate(new Date)
     body.length > 0 ? addComment({id, author, body, date}, postId) : alert('Enter comment, please')
-    el.target.querySelector('#commentBody').value = ''
+    commentText.value = ''
   }
 
   const deleteTweet = (tweet) => {
@@ -67,7 +67,7 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
                   <h6 href="#" className="card-linkc comments"><u>Comments:</u></h6>
                   <Comments postId={tweet.id} comments={comments} removeComment={removeComment} name={name} />
                   <form className="comment-form" onSubmit={postComment} >
-                    <textarea className="form-control" id="commentBody" data-id={tweet.id} rows="1" placeholder="New comment"></textarea>
+                    <textarea className="form-control" id="commentText" data-id={tweet.id} rows="1" placeholder="New comment"></textarea>
                     <button type="submit" className="btn btn-primary btn-sm">Add comment</button>
                   </form>
                 </li>
