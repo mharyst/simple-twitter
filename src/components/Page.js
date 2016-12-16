@@ -1,34 +1,15 @@
 import React from 'react'
 import Comments from './Comments'
+import NewTweetForm from './NewTweetForm'
+import formatDate from '../helpers/formatDate'
 
 const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, removeComment }) => {
-  
-  const formatDate = (date) => {
-    let dd = date.getDate()
-    if (dd < 10) dd = '0' + dd
-    let mm = date.getMonth() + 1
-    if (mm < 10) mm = '0' + mm
-    let yy = date.getFullYear() % 100;
-    if (yy < 10) yy = '0' + yy
-    return `${dd}.${mm}.${yy}`
-  }
-
-  const postTweet = (el) => {
-    el.preventDefault()
-    let text = el.target.tweetBody.value
-    const author = name
-    let id
-    posts.length === 0 ? id = 0 : id = (posts[posts.length - 1].id) + 1
-    const date = formatDate(new Date)
-    text.length > 0 ? createTweet({id, author, text, date}) : alert('Enter tweet, please')
-    el.target.tweetBody.value = ''
-  }
 
   const postComment = (el) => {
     el.preventDefault()
+    const author = name
     const commentText = el.target.commentText
     const body = commentText.value
-    const author = name
     const postId = commentText.getAttribute("data-id")
     let id
     comments[postId].length === 0 ? id = 0 : id = (comments[postId][comments[postId].length - 1].id) + 1
@@ -44,17 +25,7 @@ const Page = ({ name, posts, comments, createTweet, removeTweet, addComment, rem
 
   return (
     <div className="container">
-      <div className='row new-tweet'>
-        <div className='col-md-6'>
-          <h2>New Tweet:</h2>
-          <form className="tweet-form" onSubmit={postTweet}>
-            <div className="form-group">
-              <textarea className="form-control" id="tweetBody" rows="3" placeholder="What`s happening?"></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">Tweet</button>
-          </form>
-        </div> 
-      </div>
+      <NewTweetForm posts={posts} name={name} createTweet={createTweet} />
       <h2>Your feed:</h2>
       <div className="row">
         <div className="col-md-8 tweet-feed">

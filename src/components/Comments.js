@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Comments = ({ postId, comments, removeComment, name }) => {
 
   const deleteComment = (comment) => {
