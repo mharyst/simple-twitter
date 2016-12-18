@@ -3,20 +3,20 @@ import * as actionTypes from '../constants/Page'
 const initialState = {
   posts: [
     {
-      "id": 1,
+      "id": "1",
       "author": "John",
       "body": "Cool day",
       "date": "13.11.16"
     },
     {
-      "id": 2,
+      "id": "2",
       "author": "Robert",
       "body": "Netflix bringing offline playback to video service for the first date",
       "date": "13.11.16"
     }
   ],
   comments: {
-    1: [
+    "1": [
       {
         "id": 3,
         "author": "Logan",
@@ -24,7 +24,7 @@ const initialState = {
         "date": "12.11.16"
       }
     ],
-    2: [
+    "2": [
       {
         "id": 1,
         "author": "Peter",

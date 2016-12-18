@@ -1,14 +1,14 @@
 import React from 'react'
 import formatDate from '../helpers/formatDate'
+import { v4 } from 'node-uuid'
 
-const NewTweetForm = ({ posts, name, createTweet }) => {
+const NewTweetForm = ({ name, createTweet }) => {
 
   const postTweet = (el) => {
     el.preventDefault()
     let body = el.target.tweetBody.value
     const author = name
-    let id
-    posts.length === 0 ? id = 0 : id = (posts[posts.length - 1].id) + 1
+    const id = v4()
     const date = formatDate(new Date)
     body.length > 0 ? createTweet({id, author, body, date}) : alert('Enter tweet, please')
     el.target.tweetBody.value = ''
@@ -31,7 +31,6 @@ const NewTweetForm = ({ posts, name, createTweet }) => {
 
 NewTweetForm.proptypes = {
   name: React.PropTypes.string.isRequired,
-  posts: React.PropTypes.array.isRequired,
   createTweet: React.PropTypes.func.isRequired,
 }
 

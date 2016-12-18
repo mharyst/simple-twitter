@@ -1,7 +1,8 @@
 import React from 'react'
 import formatDate from '../helpers/formatDate'
+import { v4 } from 'node-uuid'
 
-const NewCommentForm = ({ tweetId, name, comments, addComment }) => {
+const NewCommentForm = ({ tweetId, name, addComment }) => {
 
   const postComment = (el) => {
     el.preventDefault()
@@ -9,8 +10,7 @@ const NewCommentForm = ({ tweetId, name, comments, addComment }) => {
     const commentText = el.target.commentText
     const body = commentText.value
     const postId = commentText.getAttribute("data-id")
-    let id
-    comments[postId].length === 0 ? id = 0 : id = (comments[postId][comments[postId].length - 1].id) + 1
+    const id = v4()
     const date = formatDate(new Date)
     body.length > 0 ? addComment({id, author, body, date}, postId) : alert('Enter comment, please')
     commentText.value = ''
@@ -27,7 +27,6 @@ const NewCommentForm = ({ tweetId, name, comments, addComment }) => {
 NewCommentForm.proptypes = {
   tweetId: React.PropTypes.number.isRequired,
   name: React.PropTypes.string.isRequired,
-  comments: React.PropTypes.array.isRequired,
   addComment: React.PropTypes.func.isRequired,
 }
 

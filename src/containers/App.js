@@ -22,9 +22,7 @@ class App extends Component {
             posts={page.posts} 
             comments={page.comments} 
             createTweet={createTweet} 
-            removeTweet={removeTweet} 
-            addComment={addComment}
-            removeComment={removeComment}
+            removeTweet={removeTweet}
           />
         ) : (
           <div className="no-fav-msg text-xs-center">Sign in, please.</div>
@@ -38,6 +36,8 @@ const mapStateToProps = (state) => ({
   user: state.user,
   page: state.page,
 })
+
+console.log(pageActions);
 
 const mapDispatchToProps = (dispatch) => ({
   pageActions: bindActionCreators(pageActions, dispatch),
