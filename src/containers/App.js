@@ -9,8 +9,8 @@ import * as userActions from '../actions/UserActions'
 
 class App extends Component {
   render() {
-    const { user, page } =  this.props
-    const { createTweet, removeTweet, addComment, removeComment } = this.props.pageActions
+    const { user } =  this.props
+    const { createTweet } = this.props.pageActions
     const { handleLogin, signOut } = this.props.userActions
     return (
       <div>
@@ -18,11 +18,8 @@ class App extends Component {
         <User name={user.name} handleLogin={handleLogin} signOut={signOut} />
         { user.name ? (
           <Page 
-            name={user.name} 
-            posts={page.posts} 
-            comments={page.comments} 
-            createTweet={createTweet} 
-            removeTweet={removeTweet}
+            name={user.name}
+            createTweet={createTweet}
           />
         ) : (
           <div className="no-fav-msg text-xs-center">Sign in, please.</div>
@@ -33,8 +30,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
-  page: state.page,
+  user: state.user
 })
 
 console.log(pageActions);
