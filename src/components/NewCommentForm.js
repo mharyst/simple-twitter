@@ -9,7 +9,7 @@ const NewCommentForm = ({ tweetId, name, addComment }) => {
     const author = name
     const commentText = el.target.commentText
     const body = commentText.value
-    const postId = commentText.getAttribute("data-id")
+    const postId = tweetId
     const id = v4()
     const date = formatDate(new Date)
     body.length > 0 ? addComment({id, author, body, date}, postId) : alert('Enter comment, please')
@@ -18,7 +18,7 @@ const NewCommentForm = ({ tweetId, name, addComment }) => {
 
   return (
     <form className="comment-form" onSubmit={postComment} >
-      <textarea className="form-control" id="commentText" data-id={tweetId} rows="1" placeholder="New comment"></textarea>
+      <textarea className="form-control" id="commentText" rows="1" placeholder="New comment"></textarea>
       <button type="submit" className="btn btn-primary btn-sm">Add comment</button>
     </form>
   )
