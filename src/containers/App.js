@@ -33,8 +33,6 @@ const mapStateToProps = (state) => ({
   user: state.user
 })
 
-console.log(pageActions);
-
 const mapDispatchToProps = (dispatch) => ({
   pageActions: bindActionCreators(pageActions, dispatch),
   userActions: bindActionCreators(userActions, dispatch),
