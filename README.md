@@ -8,6 +8,7 @@ Live version available at https://mharyst.github.io/simple-twitter/
 - Redux
 - ES6 (with Babel)
 - Bootstrap 4
+- Local Storage API
 
 ---
 
